@@ -1,3 +1,9 @@
+import sys
+import os
+
+# Adiciona o caminho do diretório "Back_End" ao sys.path
+sys.path.append(os.path.abspath(os.path.join(os.path.dirname(__file__), 'Back_End')))
+
 from fastapi import FastAPI, HTTPException, Depends
 from sqlalchemy.orm import Session
 from controllers.user_controller import router as user_router
@@ -5,6 +11,7 @@ from controllers.event_controller import router as event_router
 from db.session import SessionLocal
 from models.user import User
 from schemas.user_schema import UserCreate, UserResponse
+
 
 app = FastAPI()
 
